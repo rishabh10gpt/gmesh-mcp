@@ -4,7 +4,7 @@ A system that enables Large Language Models (LLMs) to interact directly with Gms
 
 ## Overview
 
-This project implements a Multi-Contextual Prompting (MCP) system for Gmsh, a finite element mesh generator. It allows users to describe mesh requirements in natural language, which are then interpreted by an LLM to generate appropriate Gmsh commands. The system supports both API-based LLMs (like OpenAI's GPT and Anthropic's Claude) and local LLMs via Ollama.
+This project implements a Model Context Protocol (MCP) system for Gmsh, a finite element mesh generator. It allows users to describe mesh requirements in natural language, which are then interpreted by an LLM to generate appropriate Gmsh commands. The system supports both API-based LLMs (like OpenAI's GPT and Anthropic's Claude) and local LLMs via Ollama.
 
 ## Features
 
@@ -19,7 +19,7 @@ This project implements a Multi-Contextual Prompting (MCP) system for Gmsh, a fi
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/gmesh-mcp.git
+   git clone https://github.com/rishabh10gpt/gmesh-mcp.git
    cd gmesh-mcp
    ```
 
