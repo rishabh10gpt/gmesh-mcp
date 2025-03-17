@@ -114,7 +114,7 @@ async def generate_mesh(request: MeshRequest) -> MeshResponse:
     try:
         # Create a mesh generator with the specified LLM config
         generator = MeshGenerator(
-            llm_provider=request.llm_config.provider if request.llm_config else "openai",
+            llm_provider=request.llm_config.provider if request.llm_config else "ollama",
             model_name=request.llm_config.model_name if request.llm_config else None,
             temperature=request.llm_config.temperature if request.llm_config else 0.2,
             max_tokens=request.llm_config.max_tokens if request.llm_config else 2048,

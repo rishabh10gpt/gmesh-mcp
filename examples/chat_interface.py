@@ -99,7 +99,7 @@ async def chat_session(generator: MeshGenerator):
 async def main():
     """Main function."""
     parser = argparse.ArgumentParser(description="Chat with the Gmsh MCP system")
-    parser.add_argument("--llm", default="openai", choices=["openai", "anthropic", "ollama"], help="LLM provider to use")
+    parser.add_argument("--llm", default="ollama", choices=["openai", "anthropic", "ollama"], help="LLM provider to use")
     parser.add_argument("--model", default=None, help="Model name to use (provider-specific)")
     args = parser.parse_args()
     

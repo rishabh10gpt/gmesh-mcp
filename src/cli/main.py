@@ -15,7 +15,7 @@ from ..utils.config import OUTPUT_DIR
 
 async def generate_mesh(
     prompt: str,
-    llm_provider: str = "openai",
+    llm_provider: str = "ollama",
     model_name: Optional[str] = None,
     temperature: float = 0.2,
     output_format: str = "msh",

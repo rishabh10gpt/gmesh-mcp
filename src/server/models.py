@@ -4,17 +4,17 @@ Data models for the Gmsh MCP server API.
 
 from typing import Dict, List, Optional, Any
 from pydantic import BaseModel, Field
-
+from ..utils.config import OLLAMA_HOST, OLLAMA_MODEL
 
 class LLMConfig(BaseModel):
     """LLM configuration model."""
     
     provider: str = Field(
-        default="openai",
+        default="ollama",
         description="LLM provider to use ('openai', 'anthropic', or 'ollama')"
     )
     model_name: Optional[str] = Field(
-        default=None,
+        default=OLLAMA_MODEL,
         description="Model name to use (provider-specific)"
     )
     temperature: float = Field(
@@ -33,7 +33,7 @@ class LLMConfig(BaseModel):
         description="API key for the provider (if not using environment variables)"
     )
     host: Optional[str] = Field(
-        default=None,
+        default=OLLAMA_HOST,
         description="Host URL for Ollama (if not using environment variables)"
     )
 

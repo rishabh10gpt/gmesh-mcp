@@ -1,5 +1,5 @@
 """
-Utilities module for the Gmsh MCP system.
+Utility functions and configuration.
 """
 
 from .config import (

@@ -82,6 +82,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgements
 
-- Inspired by the MCP system for Blender by Siddharth Ahuja
 - Built on the powerful Gmsh open-source mesh generator
 - Leverages advancements in LLMs for natural language understanding 

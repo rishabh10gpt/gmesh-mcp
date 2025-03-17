@@ -14,4 +14,8 @@ __all__ = [
     "AnthropicLLM",
     "OllamaLLM",
     "LLMFactory"
-] 
+]
+
+"""
+LLM integration for mesh generation.
+""" 

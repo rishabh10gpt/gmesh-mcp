@@ -19,8 +19,9 @@ OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3")
-
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")
+OLLAMA_API_BASE_URL = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_MODEL_NAME = OLLAMA_MODEL
 # Server Configuration
 SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
 SERVER_PORT = int(os.getenv("SERVER_PORT", "8000"))
@@ -42,3 +43,23 @@ Always include proper initialization and finalization of Gmsh in your code.
 DEFAULT_MESH_SIZE = 0.1
 DEFAULT_MESH_DIMENSION = 3
 DEFAULT_MESH_ORDER = 2  # Second-order elements by default 
+
+# New additions from the code block
+VISUALIZATIONS_DIR = OUTPUT_DIR / "visualizations"
+
+# Create output directories if they don't exist
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(VISUALIZATIONS_DIR, exist_ok=True)
+
+# Mesh settings
+DEFAULT_MIN_QUALITY = 0.3
+DEFAULT_MAX_ITERATIONS = 3
+DEFAULT_OPTIMIZE = True
+
+# Quality thresholds
+QUALITY_WARNING_THRESHOLD = 0.7
+QUALITY_ERROR_THRESHOLD = 0.3
+
+# File extensions
+MESH_EXTENSION = ".msh"
+VISUALIZATION_EXTENSION = ".png" 

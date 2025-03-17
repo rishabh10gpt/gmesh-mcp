@@ -1,5 +1,5 @@
 """
-Core module for the Gmsh MCP system.
+Core functionality for mesh generation and management.
 """
 
 from .gmsh_controller import GmshController, MeshData

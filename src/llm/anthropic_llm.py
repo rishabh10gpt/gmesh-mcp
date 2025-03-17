@@ -54,24 +54,36 @@ class AnthropicLLM(BaseLLM):
         
         return message.content[0].text
     
-    async def generate_code(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+    async def generate_code(self, prompt: str, feedback: Optional[str] = None) -> str:
         """
-        Generate code from the Anthropic model, optimized for code generation.
+        Generate Gmsh code using Anthropic's Claude.
         
         Args:
             prompt: The user prompt describing the code to generate
-            system_prompt: Optional system prompt to guide the model's behavior
+            feedback: Optional feedback from previous attempts
             
         Returns:
             The generated code as a string
         """
-        code_prompt = f"Generate Python code using the Gmsh API for the following task: {prompt}\n\nProvide ONLY the Python code without any explanations or markdown."
+        # Use the standardized prompt template from the base class
+        mesh_prompt = self.get_mesh_prompt_template(prompt, feedback)
+        system_prompt = self.get_system_prompt()
         
-        if not system_prompt:
-            system_prompt = "You are an expert in computational geometry and mesh generation using Gmsh. Generate clean, efficient Python code that uses the Gmsh API correctly."
+        # Generate code using the Anthropic API
+        message = await self.client.messages.create(
+            model=self.model_name,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+            system=system_prompt,
+            messages=[{
+                "role": "user",
+                "content": mesh_prompt
+            }]
+        )
         
-        response = await self.generate(code_prompt, system_prompt)
-        return self.extract_code_block(response)
+        # Extract and post-process the code
+        code = message.content[0].text
+        return self.post_process_code(code)
     
     async def chat(self, messages: List[Dict[str, str]]) -> str:
         """

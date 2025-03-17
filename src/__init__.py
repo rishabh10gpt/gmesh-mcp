@@ -1,5 +1,5 @@
 """
-Gmsh Model Context Protocol (MCP) package.
+Gmsh MCP (Model context Protocol) package.
 """
 
 from .core import MeshGenerator, GmshController, MeshData
